@@ -27,4 +27,13 @@ const signupValidation = oneOf([
   ],
 ]);
 
-module.exports = { signupValidation };
+const loginValidation = oneOf([
+  [
+    body("email").notEmpty().withMessage("The email field should not be empty"),
+    body("password")
+      .notEmpty()
+      .withMessage("The password field should not be empty"),
+  ],
+]);
+
+module.exports = { signupValidation, loginValidation };
